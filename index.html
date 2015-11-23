@@ -2,33 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <title>Guessing Game</title>
+    <title>Guessing Game</title>
+  <link rel="stylesheet" type="text/css" href="main.css">
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-teal.min.css" />
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
+<div id = "wrapper">
+<!-- Title of game -->
 <div class="header">Guessing Game</div>
 
+<!-- Input field for guess -->
 <form action="#">
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
     <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
-    <label class="mdl-textfield__label" for="sample4">Number...</label>
+    <label class="mdl-textfield__label" for="sample4">Enter a number between 1 and 100...</label>
     <span class="mdl-textfield__error">Input is not a number!</span>
   </div>
 </form>
 
-<button class="mdl-button mdl-js-button mdl-button--raised">
-  Guess
-</button>
 
-<button class="mdl-button mdl-js-button mdl-button--raised">
-  Hint
-</button>
 
-<button class="mdl-button mdl-js-button mdl-button--raised">
-  Get Answer
-</button>
+  <!-- Accent-colored raised button with ripple -->
+  <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Submit Guess
+  </button>
+<br>
 
+  <!-- Accent-colored raised button with ripple -->
+  <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Hint
+  </button>
+<br>
+
+
+  <!-- Accent-colored raised button with ripple -->
+  <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+    Start Over
+  </button>
+
+</div>
 </body>
 </html>
