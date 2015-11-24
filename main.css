@@ -1,3 +1,7 @@
+body {
+    text-align: center;
+}
+
 .header {
     font-family: 'Open Sans', sans-serif;
     font-size: 60px;
@@ -5,11 +9,17 @@
     padding-bottom: 5%;
 }
 
-.button {
-    font-family: 'Open Sans' !important; sans-serif;
-    margin: 20px;
+.hint {
+    cursor: help;
 }
 
-#wrapper {
-    text-align: center;
+.hint-label {
+    font-family: 'Open Sans' !important;
 }
+
+.button {
+    font-family: 'Open Sans' !important;
+    margin-top: 20px;
+    width: 140px;
+}
+

@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Guessing Game</title>
+  <meta charset="UTF-8">
+  <title>Guessing Game</title>
   <link rel="stylesheet" type="text/css" href="main.css">
-  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-teal.min.css" />
+  <!-- I am using Material Design Lite rather than Bootstrap because I think it has a more modern design -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-teal.min.css"/>
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
-<div id = "wrapper">
+
 <!-- Title of game -->
 <div class="header">Guessing Game</div>
 
@@ -24,26 +25,25 @@
   </div>
 </form>
 
-
-
-  <!-- Accent-colored raised button with ripple -->
-  <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-    Submit Guess
-  </button>
-<br>
-
-  <!-- Accent-colored raised button with ripple -->
-  <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-    Hint
-  </button>
-<br>
-
-
-  <!-- Accent-colored raised button with ripple -->
-  <button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-    Start Over
-  </button>
-
+<!-- Hint for game -->
+<div id="hint" class="hint icon material-icons">mood</div>
+<div class="mdl-tooltip" for="hint">
+  Here is a hint
 </div>
+
+<div class="hint-label"> Get a hint</div>
+
+<!-- Accent-colored raised button with ripple -->
+<button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Submit Guess
+</button>
+
+<br>
+
+<!-- Accent-colored raised button with ripple -->
+<button class="button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+  Start Over
+</button>
+
 </body>
 </html>
