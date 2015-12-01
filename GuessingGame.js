@@ -12,16 +12,18 @@ function generateWinningNumber() {
 // Fetch the Players Guess
 
 function playersGuessSubmission() {
-
+  //player enters guess in input field 
 }
+
 
 
 
 /* **** Event Listeners/Handlers ****  */
 
 // Clicking Submit button
-$(".submit-button").click(function() {
-  console.log("Clicked");
+$(function() {
+  $(".submit-button").click(function () {
+    console.log("Clicked");
+  });
 });
-
 
