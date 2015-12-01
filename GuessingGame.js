@@ -11,8 +11,8 @@ function generateWinningNumber() {
 
 // Fetch the Players Guess
 
-function playersGuessSubmission() {
-  //player enters guess in input field 
+function getPlayerGuess() {
+  //player enters guess in input field
 }
 
 
@@ -20,10 +20,18 @@ function playersGuessSubmission() {
 
 /* **** Event Listeners/Handlers ****  */
 
-// Clicking Submit button
 $(function() {
+
+  // Clicking Submit button
   $(".submit-button").click(function () {
     console.log("Clicked");
   });
+
+  // Entering in guess into input field 
+  $(".guess-input").keyup(function () {
+    console.log("Typed");
+  })
+
 });
+
 
