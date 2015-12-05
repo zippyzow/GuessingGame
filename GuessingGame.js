@@ -5,7 +5,7 @@
 /** Global Variables */
 
 var winningNumber = generateWinningNumber();;
-var turnCounter = 0;
+var guesses = [];
 
 
 /** Guessing Game Functions */
@@ -33,8 +33,8 @@ function getPlayerGuess() {
  * If the number is zero, the guess is correct.
  * @returns {number} the difference between the player's guess and the winning number.
  */
-function checkGuess() {
-  return getPlayerGuess() - winningNumber;
+function getGuessDifference(guess) {
+  return guess - winningNumber;
 }
 
 /**
@@ -46,7 +46,7 @@ function setHintText() {
 
 /** Event Handlers */
 
-function validateSubmission() {
+function isSubmissionValid() {
   var val = parseInt($('.guess-input').val());
   return typeof val === 'number' && 1 <= val && val <= 100;
 }
@@ -55,28 +55,37 @@ function validateSubmission() {
  * Alerts player after submission whether their guess is too low, too high, or correct.
  */
 function handlePlayerInput() {
-  useTurn();
-  
-  var difference = checkGuess();
-  var message = "";
-  if (difference < 0) {
-    message += 'Your guess is too low.';
-  } else if (difference > 0) {
-    message += 'Your number is too high.';
-  } else {
-    message += 'You won!';
-  }
+  var guess = getPlayerGuess();
 
-  var absDifference = Math.abs(difference);
-  if (absDifference > 0) {
-    if (absDifference <= 5) {
-      message += " You are hot!";
-    } else if (absDifference <= 15) {
-      message += " You are warm.";
-    } else if (absDifference <= 30) {
-      message += " You are cold.";
+  var message = "";
+  if (submitGuess(guess)) {
+    var difference = getGuessDifference(guess);
+    if (difference === 0) {
+      message += 'You won!';
+      $('body').addClass('win');
+    } else if (guesses.length === 5) {
+      message += 'You lost!';
+    } else if (difference < 0) {
+      message += 'Your guess is too low.';
     } else {
-      message += " You are freezing!";
+      message += 'Your number is too high.';
+    } 
+
+    var absDifference = Math.abs(difference);
+    if (absDifference > 0 && guesses.length < 5) {
+      if (absDifference <= 5) {
+        message += " You are hot!";
+      } else if (absDifference <= 15) {
+        message += " You are warm.";
+      } else if (absDifference <= 30) {
+        message += " You are cold.";
+      } else {
+        message += " You are freezing!";
+      }
+    }
+  } else {
+    if (guesses.length < 5) {
+      message += "You have already guessed this!";
     }
   }
 
@@ -86,9 +95,14 @@ function handlePlayerInput() {
 /** 
  * Updates the turn-indicator view and increments turnCounter after each turn
 */
-function useTurn() {
-  $('.circle-container').children().eq(turnCounter).addClass('empty-circle');
-  turnCounter++;
+function submitGuess(guess) {
+  if (guesses.indexOf(guess) === -1) {
+    $('.circle-container').children().eq(guesses.length).addClass('empty-circle').text(guess);
+    guesses.push(guess);
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -122,11 +136,11 @@ $(function() {
   });
 
   $('.guess-input').keyup(function() {
-    $('.submit-button').prop("disabled", !validateSubmission());
+    $('.submit-button').prop("disabled", !isSubmissionValid());
   });
 
   $('.guess-input').keypress(function(e) {
-    if (e.which == 13) {
+    if (e.which === 13 && isSubmissionValid()) {
       handlePlayerInput();
     }
   });

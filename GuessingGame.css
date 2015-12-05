@@ -2,6 +2,11 @@ body {
     text-align: center;
 } 
 
+body.win {
+    background: url(https://media.giphy.com/media/RrI7LNyepQFSo/giphy.gif) no-repeat center center fixed;
+    background-size:100%;
+}
+
 body * {
     font-family: 'Open Sans';
 }
