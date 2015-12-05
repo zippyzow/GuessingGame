@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
     <title>Guessing Game</title>
-    <link rel="stylesheet" type="text/css" href="GuessingGame.css">
   <!-- I am using Material Design Lite rather than Bootstrap because I think it has a more modern design -->
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.cyan-teal.min.css"/>
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
@@ -11,25 +10,40 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript" src="GuessingGame.js"></script>
+    <link rel="stylesheet" type="text/css" href="GuessingGame.css">
   </head>
 <body>
 
 <!-- Title of game -->
-<div class="header">Guessing Game</div>
+<h1 class="header">Guessing Game</h1>
+
+<!-- Number of tries -->
+<div class="turn-indicator">
+  <div class="turn-indicator-title">Turns</div>
+  <div class="circle-container">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+</div>
+
 
 <!-- Input field for guess -->
 <form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    <input class="guess-input mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4">
+  <div class="input-container mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+    <input class="guess-input mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4" autocomplete="off">
     <label class="mdl-textfield__label" for="sample4">Enter a number between 1 and 100...</label>
     <span class="mdl-textfield__error">Input is not a number!</span>
   </div>
 </form>
 
-<!-- Hint for game -->
-<div id="hint" class="hint icon material-icons">mood</div>
-<div class="hint-text mdl-tooltip" for="hint">Here is a hint </div>
-<div class="hint-label"> Get a hint</div>
+<!-- How close player is to winning number -->
+<div class="temperature">
+  temperature
+</div>
+
 
 <!-- Accent-colored raised button with ripple -->
 <button class="button submit-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -42,6 +56,13 @@
 <button class="button start-over-button mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
   Start Over
 </button>
+
+<br>
+
+<!-- Hint for game -->
+<div id="hint-icon" class="hint-icon icon material-icons">mood</div>
+<div class="hint-text mdl-tooltip" for="hint-icon">Here is a hint </div>
+<div class="hint-label"> Get a hint</div>
 
 </body>
 </html>

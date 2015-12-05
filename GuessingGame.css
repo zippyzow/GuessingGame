@@ -1,25 +1,62 @@
 body {
     text-align: center;
+} 
+
+body * {
+    font-family: 'Open Sans';
 }
 
-.header {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 60px;
-    padding-top: 5%;
-    padding-bottom: 5%;
+.turn-indicator-title {
+    font-size: 16px;
 }
 
-.hint {
-    cursor: help;
+.circle-container {
+    margin-top: 12px;
 }
 
-.hint-label {
-    font-family: 'Open Sans' !important;
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #64FFDA;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px #64FFDA;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
-.button {
-    font-family: 'Open Sans' !important;
+.circle.empty-circle {
+    background-color: #ffffff;
+}
+
+.input-container {
+    margin-top: 12px;
+}
+
+.input-container * {
+    text-align: center;
+}
+
+.input-container .mdl-textfield__input {
+    font-size: 36px;
+}
+
+.input-container .mdl-textfield__error {
+    width: 100%;
+}
+
+.temperature {
+    display: none;
+}
+
+.button.mdl-button {
+    font-family: 'Open Sans';
     margin-top: 20px;
     width: 140px;
 }
 
+.hint-icon {
+    cursor: help;
+    margin-top: 20px;
+}
